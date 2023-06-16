@@ -32,12 +32,19 @@ public class UserService implements IUserService {
 
     @Override
     public UserResponse findById(Long id) {
-
         Optional<User> obj = repository.findById(id);
-
         if (obj.isPresent()){
             return UserResponse.convert(obj.get());
         }
             return null;
+    }
+
+    @Override
+    public UserResponse findByCpf(String cpf) {
+        User user = repository.findByCpf(cpf);
+        if(user != null){
+            return UserResponse.convert(user);
+        }
+        return null;
     }
 }

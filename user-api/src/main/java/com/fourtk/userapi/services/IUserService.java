@@ -11,4 +11,6 @@ public interface IUserService {
     public List<UserResponse> getAll();
 
     UserResponse findById(Long id);
+
+    public UserResponse findByCpf(String cpf);
 }

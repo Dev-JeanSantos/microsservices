@@ -39,4 +39,10 @@ public class UserController {
         return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<UserResponse> getByCpf(@PathVariable String cpf){
+        UserResponse response = service.findByCpf(cpf);
+        return ResponseEntity.ok().body(response);
+    }
+
 }
