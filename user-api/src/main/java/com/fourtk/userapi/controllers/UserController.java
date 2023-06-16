@@ -45,6 +45,12 @@ public class UserController {
         return ResponseEntity.ok().body(response);
     }
 
+    @GetMapping("/{search}")
+    public ResponseEntity<List<UserResponse>> getAllByName(@RequestParam(name="name",required = true) String name){
+        List<UserResponse> users = service.queryByName(name);
+        return ResponseEntity.ok().body(users);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<UserResponse> getByCpf(@PathVariable Long id){
         service.delete(id);

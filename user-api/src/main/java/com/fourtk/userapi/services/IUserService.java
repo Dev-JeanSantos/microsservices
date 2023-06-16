@@ -15,4 +15,6 @@ public interface IUserService {
     public UserResponse findByCpf(String cpf);
 
     void delete(Long id);
+
+    List<UserResponse> queryByName(String name);
 }

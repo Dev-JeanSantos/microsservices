@@ -55,4 +55,11 @@ public class UserService implements IUserService {
             repository.delete(user.get());
         }
     }
+
+    @Override
+    public List<UserResponse> queryByName(String name) {
+        List<User> users = repository.queryByNameLike(name);
+        List<UserResponse> myUsers = users.stream().map(UserResponse::convert).collect(Collectors.toList());
+        return myUsers;
+    }
 }
