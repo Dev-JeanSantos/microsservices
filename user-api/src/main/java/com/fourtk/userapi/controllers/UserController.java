@@ -45,4 +45,10 @@ public class UserController {
         return ResponseEntity.ok().body(response);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<UserResponse> getByCpf(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -47,4 +47,12 @@ public class UserService implements IUserService {
         }
         return null;
     }
+
+    @Override
+    public void delete(Long id) {
+        Optional<User> user = repository.findById(id);
+        if(user.isPresent()){
+            repository.delete(user.get());
+        }
+    }
 }

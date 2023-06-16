@@ -13,4 +13,6 @@ public interface IUserService {
     UserResponse findById(Long id);
 
     public UserResponse findByCpf(String cpf);
+
+    void delete(Long id);
 }
