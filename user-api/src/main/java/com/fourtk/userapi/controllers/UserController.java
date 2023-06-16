@@ -33,4 +33,10 @@ public class UserController {
         return ResponseEntity.ok().body(users);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponse> getById(@PathVariable Long id){
+        UserResponse response = service.findById(id);
+        return ResponseEntity.ok().body(response);
+    }
+
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,12 +20,24 @@ public class UserService implements IUserService {
 
     @Transactional
     public UserRequest insert(UserRequest request) {
-        User user = repository.save(User.convert(request));
+        User user = repository.save(User.converterRequest(request));
         return UserRequest.convert(user);
     }
+
     @Transactional(readOnly = true)
     public List<UserResponse> getAll() {
         List<User> list = repository.findAll();
         return list.stream().map(UserResponse::convert).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserResponse findById(Long id) {
+
+        Optional<User> obj = repository.findById(id);
+
+        if (obj.isPresent()){
+            return UserResponse.convert(obj.get());
+        }
+            return null;
     }
 }

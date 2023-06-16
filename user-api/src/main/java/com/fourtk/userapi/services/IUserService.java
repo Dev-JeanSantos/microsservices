@@ -9,4 +9,6 @@ public interface IUserService {
     public UserRequest insert (UserRequest request);
 
     public List<UserResponse> getAll();
+
+    UserResponse findById(Long id);
 }

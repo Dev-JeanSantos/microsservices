@@ -1,6 +1,7 @@
 package com.fourtk.userapi.entities;
 
 import com.fourtk.userapi.dtos.requesties.UserRequest;
+import com.fourtk.userapi.dtos.responses.UserResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +30,7 @@ public class User {
     @Column
     private LocalDate registrationDate = LocalDate.now();
 
-    public static User convert(UserRequest userRequest) {
+    public static User converterRequest(UserRequest userRequest) {
         User user = new User();
         user.setName(userRequest.getName());
         user.setCpf(userRequest.getCpf());
@@ -38,6 +39,17 @@ public class User {
         user.setEmail(userRequest.getEmail());
         user.setPhone(userRequest.getPhone());
         user.setRegistrationDate(userRequest.getRegistrationDate());
+        return user;
+    }
+
+    public static User converterResponse(UserResponse userResponse) {
+        User user = new User();
+        user.setName(userResponse.getName());
+        user.setCpf(userResponse.getCpf());
+        user.setAddress(userResponse.getAddress());
+        user.setEmail(userResponse.getEmail());
+        user.setPhone(userResponse.getPhone());
+        user.setRegistrationDate(userResponse.getRegistrationDate());
         return user;
     }
 
