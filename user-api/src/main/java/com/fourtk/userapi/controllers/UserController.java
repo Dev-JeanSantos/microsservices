@@ -3,6 +3,7 @@ package com.fourtk.userapi.controllers;
 import com.fourtk.userapi.dtos.requesties.UserRequest;
 import com.fourtk.userapi.dtos.responses.UserResponse;
 import com.fourtk.userapi.services.impl.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class UserController {
     private UserService service;
 
     @PostMapping
-    public ResponseEntity<UserRequest> save(@RequestBody UserRequest request) {
+    public ResponseEntity<UserRequest> save(@Valid @RequestBody UserRequest request) {
         System.out.println(request);
         request = service.insert(request);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().

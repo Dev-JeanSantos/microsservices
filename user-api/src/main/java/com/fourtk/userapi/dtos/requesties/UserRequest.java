@@ -1,9 +1,13 @@
 package com.fourtk.userapi.dtos.requesties;
 
 import com.fourtk.userapi.entities.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -12,10 +16,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class UserRequest {
     private Long id;
+
+    @NotBlank
+    @Size(min = 5, max = 15)
     private String name;
+    @CPF
+    @NotBlank
     private String cpf;
+    @NotBlank
     private String address;
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
     private String phone;
     private LocalDate registrationDate = LocalDate.now();
 
