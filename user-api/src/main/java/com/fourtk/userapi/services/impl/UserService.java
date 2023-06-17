@@ -58,8 +58,9 @@ public class UserService implements IUserService {
 
     @Override
     public List<UserResponse> queryByName(String name) {
-        List<User> users = repository.queryByNameLike(name);
-        List<UserResponse> myUsers = users.stream().map(UserResponse::convert).collect(Collectors.toList());
-        return myUsers;
+        String nameUperCase = name.toLowerCase();
+        System.out.println(nameUperCase);
+        List<User> users = repository.getUsersByName(nameUperCase);
+        return users.stream().map(UserResponse::convert).collect(Collectors.toList());
     }
 }
