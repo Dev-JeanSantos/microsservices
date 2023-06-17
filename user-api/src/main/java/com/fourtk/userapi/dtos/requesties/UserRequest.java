@@ -1,6 +1,7 @@
 package com.fourtk.userapi.dtos.requesties;
 
 import com.fourtk.userapi.entities.User;
+import com.fourtk.userapi.services.validations.CpfValid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@CpfValid
 public class UserRequest {
     private Long id;
 
