@@ -36,7 +36,6 @@ public class ProductRequest {
             request.setCategory(
                     CategoryResponse.convert(product.getCategory()));
         }
-        System.out.println(request);
         return request;
     }
 }
