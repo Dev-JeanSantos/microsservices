@@ -1,7 +1,7 @@
-package com.fourtk.userapi.configs;
+package com.fourtk.productapi.configs;
 
-import com.fourtk.userapi.services.exceptions.DataBaseException;
-import com.fourtk.userapi.services.exceptions.ResourcesNotFoundException;
+import com.fourtk.productapi.services.exceptions.DataBaseException;
+import com.fourtk.productapi.services.exceptions.ResourcesNotFoundException;
 import jakarta.persistence.NonUniqueResultException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.NotReadablePropertyException;
