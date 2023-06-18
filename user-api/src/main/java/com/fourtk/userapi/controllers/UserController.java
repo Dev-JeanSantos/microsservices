@@ -21,7 +21,6 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserRequest> save(@Valid @RequestBody UserRequest request) {
-        System.out.println(request);
         request = service.insert(request);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().
                 path("/{id}").buildAndExpand(request.getId()).toUri();
