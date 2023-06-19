@@ -24,7 +24,7 @@ public class ShoppResponse {
         ShoppResponse response = new ShoppResponse();
         response.setUserIdentifier(shopp.getUserIdentifier());
         response.setTotal(shopp.getTotal());
-        response.setDatePuchase(shopp.getDatePuchase());
+        response.setDatePuchase(shopp.getDate());
         response.setItems(shopp.getItems().stream().map(ItemRequest::convert).collect(Collectors.toList()));
         return response;
     }

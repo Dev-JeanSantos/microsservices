@@ -2,7 +2,7 @@ CREATE TABLE `shopp` (
   `id` BIGINT AUTO_INCREMENT NOT NULL,
    `user_identifier` VARCHAR(255),
    `total` DOUBLE NOT NULL,
-   `date_puchase` date,
+   `date` date,
    CONSTRAINT `pk_shopp` PRIMARY KEY (id)
 );
 

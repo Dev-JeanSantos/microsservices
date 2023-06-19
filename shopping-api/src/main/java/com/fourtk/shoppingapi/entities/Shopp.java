@@ -24,7 +24,7 @@ public class Shopp {
     @Column(nullable = false)
     private double total;
     @Column(nullable = false)
-    private LocalDate datePuchase;
+    private LocalDate date;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "item", joinColumns = @JoinColumn(name = "shop_id"))
@@ -35,7 +35,7 @@ public class Shopp {
         shopp.setId(request.getId());
         shopp.setUserIdentifier(request.getUserIdentifier());
         shopp.setTotal(request.getTotal());
-        shopp.setDatePuchase(request.getDatePuchase());
+        shopp.setDate(request.getDatePuchase());
         shopp.setItems(request.getItems().stream().map(Item::convert).collect(Collectors.toList()));
         return shopp;
     }

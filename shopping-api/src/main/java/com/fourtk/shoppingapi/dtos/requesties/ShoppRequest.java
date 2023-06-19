@@ -32,7 +32,7 @@ public class ShoppRequest {
         request.setId(shopp.getId());
         request.setUserIdentifier(shopp.getUserIdentifier());
         request.setTotal(shopp.getTotal());
-        request.setDatePuchase(shopp.getDatePuchase());
+        request.setDatePuchase(shopp.getDate());
         request.setItems(shopp.getItems().stream().map(ItemRequest::convert).collect(Collectors.toList()));
         System.out.println(request);
         return request;

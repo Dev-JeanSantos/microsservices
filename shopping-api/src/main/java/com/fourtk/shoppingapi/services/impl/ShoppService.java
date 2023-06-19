@@ -24,7 +24,7 @@ public class ShoppService implements IShoppService {
     public ShoppRequest save(ShoppRequest request) {
         request.setTotal(request.getItems().stream().map(x -> x.getPrice()).reduce((Double) 0.0, Double::sum));
         Shopp shopp = Shopp.convertRequest(request);
-        shopp.setDatePuchase(LocalDate.now());
+        shopp.setDate(LocalDate.now());
         shopp = repository.save(shopp);
         return ShoppRequest.convert(shopp);
     }
